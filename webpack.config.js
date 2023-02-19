@@ -35,8 +35,8 @@ module.exports = {
                 use: 'file-loader'
             },
             {
-                test: /\.(ttf|woff|woff2|eot)$/,
-                use: 'file-loader'
+                test: /\.(woff|woff2|eot|ttf|otf)$/i,
+                type: 'asset/resource',
             },
             {
                 test: /\.js$/,
