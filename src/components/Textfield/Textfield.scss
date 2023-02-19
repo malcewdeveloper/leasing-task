@@ -1,0 +1,75 @@
+.textfield {
+    position: relative;
+    max-width: 427px;
+    width: 100%;
+    
+    .textfield__title {
+      font-size: 16px;
+      line-height: 20px;
+      margin-bottom: 24px;
+    }
+    
+    .textfield__content {
+      position: relative;
+      
+      .textfield__label {
+        overflow: hidden;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+      }
+  
+      .textfield__input {
+        border-radius: 16px;
+        border: 2px solid $grey;
+        background-color: $grey; 
+        color: $primary;
+        font-size: 30px;
+        font-weight: 900;
+        max-width: 427px;
+        max-height: 68px;
+        padding: 16px 48px 16px 24px;
+        width: 100%;
+        height: auto;
+        &:focus {
+          background-color: $white;
+          border: 2px solid $grey;
+          outline: transparent;
+        }
+      }
+  
+      .textfiled__span {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 36px;
+        transform: translateY(-50%);
+      }
+  
+      .textfield__range {
+        background-color: $orange;
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        height: 2px;
+        width: calc(100% - 48px);
+        -webkit-appearance: none;
+        appearance: none;
+        transform: translateX(-50%);
+        outline: tranparent;
+        &::-webkit-slider-thumb {
+          background-color: $orange;
+          border: 0;
+          border-radius: 50%;
+          cursor: pointer;
+          width: 20px;
+          height: 20px;
+          margin-top: -3px;
+          -webkit-appearance: none;
+          appearance: none;
+        }
+      }
+    }
+}
