@@ -1,0 +1,22 @@
+@import '../../styles/variables.scss';
+
+
+.output {
+    display: inline-block;
+    width: 100%;
+    max-width: 427px;
+    
+    .output__header {
+        color: $primary;
+        font-family: 'Gilroy';
+        font-size: 16px;
+        font-weight: 400;
+        margin-bottom: 8px;
+    }
+    
+    .output__info {
+        font-size: 54px;
+        font-weight: 900;
+        color: $black;
+    }
+}
