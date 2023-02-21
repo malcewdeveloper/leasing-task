@@ -1,23 +1,46 @@
 import React from "react";
-import 'Textfiled.scss';
+import './Textfield.scss';
 
 
-export default function Textfiled(props) {
-    const { title, label, min, max, endAdornment, step, id, initialValue } = props;
+export default function Textfiled(props) { 
+    const { title, label, min, max, endAdornment, step, id, initialValue } = props; 
+    const inputRef = React.createRef(); 
+    const [value, setValue] = React.useState(initialValue); 
 
-    handleChange = (e) => {
-
+    React.useEffect(() => {
+        const progress = (initialValue / max) * 100 + '%';
+        inputRef.current.style.background = `linear-gradient(90deg, ${'#FF9514'} 0% ${ progress }, ${ 'transparent' } ${ progress } 100% )`;
+    }, [])
+ 
+    const handleChange = (e) => { 
+        const value = e.target.value;
+        const progress = (value / max) * 100 + '%';
+        inputRef.current.style.background = `linear-gradient(90deg, ${'#FF9514'} 0% ${ progress }, ${ 'transparent' } ${ progress } 100% )`;
+        setValue(value);
     }
-
-    return (
-        <div className="textfield">
-            {title && <div className="textfield__title">{ title }</div>}
-            <div className="textfield__content">          
-                <label className="textfield__label" for={ id }>{ label }</label>
-                <span className="textfiled__span">{ endAdornment }</span>
-                <input className="textfield__input" value={ initialValue } id={ id } type="text" />
-                <input className="textfield__range" type="range" min={ min } max={ max } step={ step } />
-            </div>
-        </div>
-    )
+ 
+    return ( 
+        <div className="textfield"> 
+            {title && <div className="textfield__title">{ title }</div>} 
+            <div className="textfield__content">           
+                <label className="textfield__label" htmlFor={ id }>{ label }</label> 
+                <span className="textfiled__span">{ endAdornment }</span> 
+                <input  
+                className="textfield__input" 
+                onChange={ handleChange } 
+                type="text"
+                value={ value }
+                id={ id } />
+                <input  
+                className="textfield__range"  
+                onChange={handleChange} 
+                type="range" 
+                ref={inputRef} 
+                min={ min }  
+                max={ max }  
+                step={ step }
+                value={ value } /> 
+            </div> 
+        </div> 
+    ) 
 }
