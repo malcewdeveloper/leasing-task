@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.button {
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 36px;
+    padding: 14px 87.5px 18px;
+    &:hover {
+        background-color: $black;
+    }
+    &:active {
+        background-color: $primary;
+    }
+    &_orange {
+        background-color: $orange;
+        color: $white;
+    }
+    &_disable {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+}
