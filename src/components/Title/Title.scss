@@ -5,6 +5,9 @@
 
     &-h1 {
         font-size: 54px;
+        @media (min-width: #{$mobile}px) and (max-width: #{$tablet}px) {
+            font-size: 34px;
+        }
     }
     &-h2 {
         font-size: 40px;

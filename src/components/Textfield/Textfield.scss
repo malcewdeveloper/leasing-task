@@ -2,13 +2,17 @@
 
 .textfield {
     position: relative;
-    max-width: 427px;
     width: 100%;
     
     .textfield__title {
+      font-family: 'Gilroy';
       font-size: 16px;
       line-height: 20px;
       margin-bottom: 24px;
+
+      @media (min-width: #{$mobile}px) and (max-width: #{$tablet}px) {
+        font-size: 14px;
+      }
     }
     
     .textfield__content {
@@ -28,7 +32,6 @@
         color: $primary;
         font-size: 30px;
         font-weight: 900;
-        max-width: 427px;
         max-height: 68px;
         padding: 16px 48px 16px 24px;
         width: 100%;
@@ -37,6 +40,9 @@
           background-color: $white;
           border: 2px solid $grey;
           outline: transparent;
+        }
+        @media (min-width: #{$mobile}px) and (max-width: #{$tablet}px) {
+          font-size: 22px;
         }
       }
   

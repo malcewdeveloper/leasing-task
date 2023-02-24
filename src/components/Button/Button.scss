@@ -7,7 +7,10 @@
     font-size: 30px;
     font-weight: 900;
     line-height: 36px;
-    padding: 14px 87.5px 18px;
+    padding: 14px 0 18px;
+    max-height: 68px;
+    width: 100%;
+    white-space: nowrap;
     &:hover {
         background-color: $black;
     }
@@ -21,5 +24,9 @@
     &_disable {
         opacity: 0.4;
         pointer-events: none;
+    }
+    @media (min-width: #{$mobile}px) and (max-width: #{$tablet}px) {
+        font-size: 22px;
+        max-height: 60px;
     }
 }
