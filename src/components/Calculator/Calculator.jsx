@@ -34,9 +34,6 @@ export default function Calculator() {
     }
 
     const mounthlyPayment = (cost, initial, period) => {
-        const one = Math.pow((1 + 0.05), period);
-        const two = Math.pow((1 + 0.05), period);
-        const three = cost - initial;
         return (cost - initial) * (0.05 * Math.pow((1 + 0.05), period) / (Math.pow((1 + 0.05), period) - 1))
     }
 
