@@ -3,7 +3,7 @@ import './Textfield.scss';
 
 
 export default function Textfiled(props) { 
-    const { title, label, min, max, endAdornment, step, id, initialValue } = props; 
+    const { title, label, min, max, endAdornment, step, id, initialValue, onChange } = props; 
     const inputRef = React.createRef(); 
     const [value, setValue] = React.useState(initialValue); 
 
@@ -12,11 +12,14 @@ export default function Textfiled(props) {
         inputRef.current.style.background = `linear-gradient(90deg, ${'#FF9514'} 0% ${ progress }, ${ 'transparent' } ${ progress } 100% )`;
     }, [])
  
-    const handleChange = (e) => { 
-        const value = e.target.value;
+    const handleChange = (event) => { 
+        const value = event.target.value;
         const progress = (value / max) * 100 + '%';
         inputRef.current.style.background = `linear-gradient(90deg, ${'#FF9514'} 0% ${ progress }, ${ 'transparent' } ${ progress } 100% )`;
         setValue(value);
+        if(onChange) {
+            onChange(event);
+        }
     }
  
     return ( 
@@ -33,7 +36,7 @@ export default function Textfiled(props) {
                 id={ id } />
                 <input  
                 className="textfield__range"  
-                onChange={handleChange} 
+                onChange={ handleChange } 
                 type="range" 
                 ref={inputRef} 
                 min={ min }  
